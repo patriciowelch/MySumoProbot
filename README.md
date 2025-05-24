@@ -77,8 +77,6 @@ Serial.println(distancia);
 | `setMotors(v1, v2)` | Controla la velocidad y dirección de los motores. Valores entre -100 y 100.                          |
 | `read_distance()`   | Lee la distancia desde el sensor ultrasónico HC-SR04 en centímetros. Retorna 450 si no detecta nada. |
 
-Perfecto, aquí te dejo un README.md completo que incluye la sección con las instrucciones para configurar y probar los motores, junto con todo lo básico para usar tu librería MySumo:
-
 ---
 
 ## Configuración y prueba de pines y dirección de motores
