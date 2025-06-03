@@ -38,10 +38,15 @@ void setup() {
   // Detener motores
   Serial.println("Motores detenidos");
   robot.setMotors(0, 0);
+  robot.crono();
 }
 
 void loop() {
   float distancia = robot.read_distance();
+  unsigned long tiempo = robot.tiempo();
+  Serial.print("Tiempo: ");
+  Serial.print(tiempo);
+  Serial.print(" ms, ");
   Serial.print("Distancia: ");
   Serial.print(distancia);
   Serial.println(" cm");

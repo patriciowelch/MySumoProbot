@@ -34,6 +34,7 @@ void MySumo::init() {
   pinMode(_motorB2, OUTPUT);
   pinMode(_HCSRTrig, OUTPUT);
   pinMode(_HCSREcho, INPUT);
+  millis();
 }
 
 float MySumo::read_distance(){
@@ -82,4 +83,17 @@ void MySumo::setMotors(int v1, int v2) {
     digitalWrite(_motorB1, LOW);
     digitalWrite(_motorB2, LOW);
   }
+}
+
+void MySumo::crono() {
+  _startTime = millis();
+}
+
+unsigned long MySumo::tiempo() {
+  unsigned long elapsedTime = millis() - _startTime;
+  if (elapsedTime < 0) {
+    _startTime = millis();
+    return 0;
+  }
+  return elapsedTime;
 }

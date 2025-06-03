@@ -2,3 +2,5 @@ MySumo  KEYWORD1
 init    KEYWORD2
 read_distance   KEYWORD2
 setMotors   KEYWORD2
+crono   KEYWORD2
+tiempo  KEYWORD2

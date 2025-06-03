@@ -11,6 +11,8 @@ class MySumo {
     void init();
     void setMotors(int v1, int v2);
     float read_distance();
+    void crono();
+    unsigned long tiempo();
 
   private:
     int _motorA1;
@@ -19,6 +21,7 @@ class MySumo {
     int _motorB2;
     int _HCSRTrig;
     int _HCSREcho;
+    unsigned long _startTime = 0;
 };
 
 #endif
