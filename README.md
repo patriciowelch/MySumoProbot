@@ -25,7 +25,7 @@ ideal para competiciones o proyectos educativos de MiniSumo.
 
 ```cpp
 #include <MySumo.h>
-````
+```
 
 ---
 
@@ -64,7 +64,14 @@ robot.setMotors(80, -50);
 
 ```cpp
 float distancia = robot.read_distance();
-Serial.println(distancia);
+```
+
+### Cronómetro interno
+```cpp
+// Reiniciar cronómetro
+robot.crono();
+// Obtener tiempo en milisegundos desde la última llamada a crono()
+unsigned long tiempo = robot.tiempo();
 ```
 
 ---
@@ -76,6 +83,8 @@ Serial.println(distancia);
 | `init()`            | Configura los pines como entrada o salida necesarios.                                                |
 | `setMotors(v1, v2)` | Controla la velocidad y dirección de los motores. Valores entre -100 y 100.                          |
 | `read_distance()`   | Lee la distancia desde el sensor ultrasónico HC-SR04 en centímetros. Retorna 450 si no detecta nada. |
+| `tiempo()`          | Retorna el tiempo en milisegundos desde la última llamada a `crono()`.                           |
+| `crono()`           | Reinicia el cronómetro interno |
 
 ---
 
@@ -90,6 +99,8 @@ En el ejemplo siguiente podrás:
 * Definir los pines para cada motor (motor A y motor B).
 * Probar el movimiento hacia adelante y hacia atrás de cada motor por separado.
 * Observar el comportamiento y, si es necesario, invertir la conexión de los pines para corregir la dirección.
+* Leer la distancia del sensor ultrasónico.
+* Imprimir el tiempo de ejecución y la distancia medida en el monitor serial.
 
 ```cpp
 #include <MySumo.h>
@@ -132,10 +143,15 @@ void setup() {
   // Detener motores
   Serial.println("Motores detenidos");
   robot.setMotors(0, 0);
+  robot.crono();
 }
 
 void loop() {
   float distancia = robot.read_distance();
+  unsigned long tiempo = robot.tiempo();
+  Serial.print("Tiempo: ");
+  Serial.print(tiempo);
+  Serial.print(" ms, ");
   Serial.print("Distancia: ");
   Serial.print(distancia);
   Serial.println(" cm");
@@ -155,7 +171,7 @@ Esto te permitirá adaptar la librería fácilmente a la configuración física 
 
 ## Autor
 
-Patricio Welch
+Patricio Welch  
 Email: [patriciowelch@gmail.com](mailto:patriciowelch@gmail.com)
 
 ---
@@ -166,5 +182,6 @@ ProbotSchool derechos de reproduccion y comercialización.
 
 ---
 
-¡Gracias por usar **MySumo**!
+¡Gracias por usar **MySumo**!  
 Si tienes dudas o quieres contribuir, abre un issue o un pull request.
+````
