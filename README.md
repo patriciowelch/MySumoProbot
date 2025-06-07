@@ -1,4 +1,3 @@
-````markdown
 # MySumo
 
 **MySumo** es una librería para controlar robots MiniSumo diseñados para Probot 2025.
